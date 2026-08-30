@@ -16,10 +16,10 @@ A
 ---
 
 ## 3. Objetivos
-Desenvolver um sistema computacional capaz de segmentar, identificar o valor nominal e contabilizar moedasdo Real em imagens digitais, informando o somatório dos valores.
+
 
 ### 3.1 Objetivo Geral
-A
+Desenvolver um sistema computacional capaz de segmentar, identificar o valor nominal e contabilizar moedasdo Real em imagens digitais, informando o somatório dos valores.
 
 ### 3.2 Objetivos Específicos
 - Segmentar as moedas separando-as do fundo da imagem (background);
