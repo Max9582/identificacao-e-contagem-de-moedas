@@ -30,8 +30,8 @@ A
 ---
 
 ## 4. Entrada e Saída Esperadas
-- **Entrada:** Uma foto contendo uma ou múltiplas moedas.
-- **Saída:** A
+- **Entrada:** Uma imagem digital contendo uma ou múltiplas moedas.
+- **Saída:** Uma texto informando o total do montante detectado.
 
 ---
 
