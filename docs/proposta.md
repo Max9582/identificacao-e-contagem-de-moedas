@@ -6,7 +6,9 @@
 ---
 
 ## 1. Problema
-A
+A identificação e contagem manual de moedas em estabelecimentos comerciais ou no uso doméstico é uma atividade repetitiva, demorada e sujeita a erros, especialmente ao lidar com grandes volumes de moedas e na ausência de contadores digitais físicos.
+
+Este projeto propõe investigar esse problema utilizando o processamento digital de imagens (PDI). A situação inicial consiste em uma foto contendo um conjunto de moedas (Real) espalhadas sobre uma superfície qualquer. A partir dessa imagem, deve-se produzir a localização (segmentação) de cada moeda, a classificação do seu respectivo valor e o somatório final.
 
 ---
 
@@ -16,10 +18,12 @@ A
 ---
 
 ## 3. Objetivos
-
+
+
 
 ### 3.1 Objetivo Geral
-Desenvolver um sistema computacional capaz de segmentar, identificar o valor nominal e contabilizar moedasdo Real em imagens digitais, informando o somatório dos valores.
+Desenvolver um sistema computacional capaz de segmentar, identificar o valor nominal e contabilizar moedas
+do Real em imagens digitais, informando o somatório dos valores.
 
 ### 3.2 Objetivos Específicos
 - Segmentar as moedas separando-as do fundo da imagem (background);
