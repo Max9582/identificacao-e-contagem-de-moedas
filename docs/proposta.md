@@ -73,7 +73,11 @@ flowchart TD
 --- 
 
 ## 8. Arquitetura preliminar
-A
+A arquitetura do software é dividida em três partes principais: 
+
+**Visão computacional (OpenCV):** Responsável por abrir a imagem, aplicar os filtros necessários, achar os contornos e fazer os recortes necessários. 
+
+**
 
 ---
 
