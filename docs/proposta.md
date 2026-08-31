@@ -32,15 +32,14 @@ do Real em imagens digitais, informando o somatório dos valores.
 ---
 
 ## 4. Entrada e Saída Esperadas
-- **Entrada:** Uma imagem digital contendo uma ou múltiplas moedas. Para o escopo do projeto, é assumido que todas as moedas presentes na imagem tenham a face "coroa" voltada para cima. 
+- **Entrada:** Uma imagem digital contendo uma ou múltiplas moedas. Para o escopo do projeto, é assumido que todas as moedas presentes na imagem tenham a face "coroa" voltada para cima. além disso, o fundo deve ter uma neutralidade razoável que permita a segmentação e Identificação adequada. 
 - **Saída:** Uma texto informando o total do montante detectado.
 
 ---
 
 ## 5. Critérios de Sucesso
-A
-
----
+- **Segmentação precisa:** O sistema precisa ser capaz de extrair corretamente a geometria das moedas, delimitando se certa região é uma moeda ou o fundo e, ao mesmo tempo, descartando ruídos e reflexos de fundo que possam interferir negativamente na segmentação. 
+- **Precisão na classificação:** O modelo de rede neural deve ser capaz de identificar corretamente o valor das moedas através de sua tipografia, independentemente de sua rotação. 
 
 ## 6. Imagens
 A
@@ -61,7 +60,7 @@ flowchart TD
 
 ### 7.1 Detalhamento das Etapas
 
-1. A
+1. **Pré-processamento:** 
 
 ---
 
