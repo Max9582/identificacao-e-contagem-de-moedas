@@ -13,13 +13,11 @@ Este projeto propõe investigar esse problema utilizando o processamento digital
 ---
 
 ## 2. Contexto de Aplicação
-A
+A solução é destinada principalmente a pequenos comerciantes que não possuem dispositivos específico para contagem de moedas, além do uso doméstico. Servirá como uma ferramenta de auxílio rápido, onde o usuário pode tirar uma foto das moedas e visualizar o valor total.
 
 ---
 
 ## 3. Objetivos
-
-
 
 ### 3.1 Objetivo Geral
 Desenvolver um sistema computacional capaz de segmentar, identificar o valor nominal e contabilizar moedas
