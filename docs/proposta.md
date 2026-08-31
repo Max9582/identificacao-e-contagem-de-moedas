@@ -62,7 +62,15 @@ flowchart TD
 
 1. **Pré-processamento:** Primeiramente,a imagem é convertida para uma escala de cinza (cv2.cvtColor) para diminuir o custo computacional. É aplicado um filtro de convolução gaussiano (cv2.GaussianBlur) para suavizar os detalhes internos da moeda, o que vai ser útil para a segmentação. Depois, é aplicado a binarização de Otso (cv2.THRESH_OTSO) (uma vez que o cv2.findCountours apenas detecta objetos claros num fundo escuro, será feito uma análise dos pixels da borda pada deduzir qual a parte clara e qual a parte escura e, dependendo do caso, será usado o cv2.THRESH_BINARY_INV ou o cv2.THRESH_BINARY. Ainda estamos avaliando essa parte) para criar uma máscara matemática que separa o fundo das moedas. 
 
----
+2. **Segmentação:** É usado o algoritmo de suzuki (cv2.findCountours) para varrer a máscara para buscar fronteiras externas e fechadas. É usado o cv2.contourArea para descartar contornos muito pequenos, como poeira e reflexos. 
+
+3. **Representação/descritores:** Para cada moeda/contorno encontrada, o sistema delimita uma caixa ao redor dela (cv2.boundingRect). Uma vez que as moedas são de tamanhos diferentes, cada caixa será redimensionada, através de interpolação espacial, para um tamanho fixo e padrão. Após isso, os valores das cores do pixels são normalizados para uma escala de 0.0 a 1.0, antes de serem convertidos pada tensores de entrada para que a rede neural possa trabalhar com a imagem. 
+
+4. **Classificação (TensorFlow/Keras):**  O tensor será injetado em uma rede neural convolucional. O modelo irá analisar características da tipografia independentemente da orientação da moeda (será usada a técnica de data augmentation), gerando a probabilidade da classe através da função softmax. 
+
+5. **Resultado:** Após a identificação, o valor nominal correspondente é incrementado em uma variável que representa o valor do montante.
+
+--- 
 
 ## 8. Arquitetura preliminar
 A
