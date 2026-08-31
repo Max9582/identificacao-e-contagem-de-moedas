@@ -32,7 +32,7 @@ do Real em imagens digitais, informando o somatório dos valores.
 ---
 
 ## 4. Entrada e Saída Esperadas
-- **Entrada:** Uma imagem digital contendo uma ou múltiplas moedas.
+- **Entrada:** Uma imagem digital contendo uma ou múltiplas moedas. Para o escopo do projeto, é assumido que todas as moedas presentes na imagem tenham a face "coroa" voltada para cima. 
 - **Saída:** Uma texto informando o total do montante detectado.
 
 ---
