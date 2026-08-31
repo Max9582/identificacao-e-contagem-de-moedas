@@ -60,7 +60,7 @@ flowchart TD
 
 ### 7.1 Detalhamento das Etapas
 
-1. **Pré-processamento:** 
+1. **Pré-processamento:** Primeiramente,a imagem é convertida para uma escala de cinza (cv2.cvtColor) para diminuir o custo computacional. É aplicado um filtro de convolução gaussiano (cv2.GaussianBlur) para suavizar os detalhes internos da moeda, o que vai ser útil para a segmentação. Depois, é aplicado a binarização de Otso (cv2.THRESH_OTSO) (uma vez que o cv2.findCountours apenas detecta objetos claros num fundo escuro, será feito uma análise dos pixels da borda pada deduzir qual a parte clara e qual a parte escura e, dependendo do caso, será usado o cv2.THRESH_BINARY_INV ou o cv2.THRESH_BINARY. Ainda estamos avaliando essa parte) para criar uma máscara matemática que separa o fundo das moedas. 
 
 ---
 
