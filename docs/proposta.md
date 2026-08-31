@@ -77,7 +77,9 @@ A arquitetura do software é dividida em três partes principais:
 
 **Visão computacional (OpenCV):** Responsável por abrir a imagem, aplicar os filtros necessários, achar os contornos e fazer os recortes necessários. 
 
-**
+**Módulo matemático (Numpy):** redimensiona os valores dos canais dos pixels para valores de 0 a 1 e faz a "criação" dos tensores que vão ser usados pelo modelo.
+
+**Módulo de IA (TensorFlow+Keras):** Usa as redes neurais para identificar e classificar o valor nominal das moedas. 
 
 ---
 
