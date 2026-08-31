@@ -52,10 +52,11 @@ flowchart TD
     A[Imagem de entrada]
     --> B[Conversão para escala de cinza e suavização]
     --> C[Segmentação por limiarização]
-    --> D[Busca de contornos e Extração da Área de interesse (ROI)]
+    --> D[Busca de contornos e extração da Área de Interesse - ROI]
     --> E[Pré-processamento para o modelo de IA]
     --> F[Classificação]
-    --> F[Resultado]
+    --> G[Resultado]
+
 
 
 ```
