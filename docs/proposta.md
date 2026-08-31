@@ -83,8 +83,21 @@ A arquitetura do software é dividida em três partes principais:
 
 ---
 
-## 9. Estudo Inicial de Viabilidade
-A
+## 9. Estudo Inicial de Viabilidade (falta organizar as ideias)
+É importante salientar que este projeto não se trata de um software inédito. Existem projetos semelhantes... O estudo pode ser organizado em duas partes:
+
+
+**Segmentação**: Reconhecimento de moedas usando técnicas parecidas com as nossas (Otsu) 
+ https://visp-doc.inria.fr/doxygen/visp-daily/tutorial-imgproc-count-coins.html
+
+
+
+**Reconhecimento:**
+Outro exemplo:  https://github.com/amyoshino/Identifying-Brazilian-Coins-with-CNN
+
+
+Obviamente:
+Além disso, é amplamente documentado na literatura a eficácia do uso de redes neurais convolucionais para identificar objetos em imagens, incluindo objetos muito mais complexos. 
 
 ---
 
