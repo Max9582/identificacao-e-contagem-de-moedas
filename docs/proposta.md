@@ -45,7 +45,7 @@ do Real em imagens digitais, informando o somatório dos valores.
 Para esse projeto, serão utilizados um *dataset* de imagens para o treinamento da IA e um conjunto de 10 imagens para o teste do código.
 
 - **Imagens para treinamento:** Para o treinamento da rede neural, que será utilizado para a identificaçã́o dos objetos, será utilizado esse *dataset* no Kaggle, disponível em <https://www.kaggle.com/datasets/lgmoneda/br-coins/data>. Que contém mais de 28 mil imagens de moedas do real brasileiro, no caso moedas de 5, 10, 25, 50 centavos e de 1 real, divido em moedas únicas e múltiplas, com e sem o [COCO format](https://cocodataset.org/#home), com diferentes iluminações ambientes, em um fundo branco.
-- **Imagens para teste:** Para os testes do código, serão utilizados 10 imagens capturadas pelos integrantes do grupo, disponíveis no diretório [input](/images/input). Contendo imagens de moedas em conjunto, próximas e separadas, e isoladas, em superfícies lisas ou texturizadas, testando a identificação das moedas em diversas situações.
+- **Imagens para teste:** Para os testes do código, serão utilizados 10 imagens capturadas pelos integrantes do grupo, disponíveis no diretório [`images/input`](/images/input). Contendo imagens de moedas em conjunto, próximas e separadas, e isoladas, em superfícies lisas ou texturizadas, testando a identificação das moedas em diversas situações.
 
 ---
 
