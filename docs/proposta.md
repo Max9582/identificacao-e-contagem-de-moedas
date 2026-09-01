@@ -129,7 +129,7 @@ O uso de técnicas de limiarização e topologia é uma abordagem consolidada pa
 ---
 
 ## 10. Uso de Inteligência Artificial Generativa
-**Ferramenta utilizada: ** Gemini Pro 3.1.<br>
+**Ferramenta utilizada:** Gemini Pro 3.1.<br>
 
 **Finalidade:** Brainstorming de abordagens, técnicas e métodos para o projeto; Pesquisa e aprofundamento em informações necessárias; Refinamento textual. <br>
 
