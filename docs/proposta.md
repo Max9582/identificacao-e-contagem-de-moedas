@@ -120,16 +120,19 @@ A arquitetura do software é dividida em três partes principais:
 ## 9. Estudo Inicial de Viabilidade
 É importante salientar que este projeto não se trata de um software inédito. Existem projetos semelhantes que já demostram que a solução é possível. O Estudo inicial de viabilidade se concentrou até agora em dois aspectos do nosso sistema. 
 
-**Segmentação**<b>
+**Segmentação**<br>
 O uso de técnicas de limiarização e topologia é uma abordagem consolidada para identificar objetos através do contorno, que no nosso caso será usada para a extração da geometria de moedas através. Um exemplo claro da robustez dessa técnica é encontrado na documentação oficial da biblioteca ViSP, que demonstra a eficácia da limiarização (usando o método de Otsu, o mesmo que será adotado) para criar uma imagem binarizada que separa o fundo das moedas e permite a identificação e contagem de moedas. Dísponível em [https://visp-doc.inria.fr/doxygen/visp-daily/tutorial-imgproc-count-coins.html]
 
-**Reconhecimento**<b>
+**Reconhecimento**<br>
 É amplamente documentado na literatura a eficácia do uso de redes neurais convolucionais para identificar objetos em imagens, incluindo objetos muito mais complexos. Aplicado ao nosso escopo específico, existem provas de conceito Open Source que mostram a capacidade das CNNs em lidar com os padrões visuais do dinheiro brasileiro. O projeto 'Identifying-Brazilian-Coins-with-CNN', disponível em [https://github.com/amyoshino/Identifying-Brazilian-Coins-with-CNN], serve de evidência de que o tipo de modelo proposto consegue aprender e diferenciar as diferentes classes. 
 
 ---
 
 ## 10. Uso de Inteligência Artificial Generativa
 **Ferramenta utilizada: ** Gemini Pro 3.1.<br>
+
 **Finalidade:** Brainstorming de abordagens, técnicas e métodos para o projeto; Pesquisa e aprofundamento em informações necessárias; Refinamento textual. <br>
+
 **Material produzido ou modificado:** Texto descritivo de 'PipeLine preliminar'. Além de refinamentos textuais ao longo da documentação. <br>
-**forma como o grupo verificou a resposta obtida** Nenhuma decisão foi aceita cegamente. Qualquer sugestão dada pela IA passou pela validação de alguém do grupo. E qualquer sugestão foi passada por revisão. <br>
+
+**forma como o grupo verificou a resposta obtida:** Nenhuma decisão foi aceita cegamente. Qualquer sugestão dada pela IA passou pela validação de alguém do grupo. E qualquer sugestão foi passada por revisão. <br>
