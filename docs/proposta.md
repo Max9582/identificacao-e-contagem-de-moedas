@@ -33,7 +33,7 @@ do Real em imagens digitais, informando o somatório dos valores.
 
 ## 4. Entrada e Saída Esperadas
 - **Entrada:** Uma imagem digital contendo uma ou múltiplas moedas. Para o escopo do projeto, é assumido que todas as moedas presentes na imagem tenham a face "coroa" voltada para cima. além disso, o fundo deve ter uma neutralidade razoável que permita a segmentação e Identificação adequada. 
-- **Saída:** Uma texto informando o total do montante detectado.
+- **Saída:** Um texto informando o total do montante detectado.
 
 ---
 
@@ -64,45 +64,46 @@ flowchart TD
 ### 7.1 Detalhamento das Etapas
 
 1. **Conversão para escala de cinza e suavização**<br>
-Finalidade:Converter a imagem para uma escala de cinza para reduzir custo computacional e borrar a imagem para para suavizar os detalhes internos da moeda, o que vai ser útil para a segmentação.<br>
-Técnica: Para fazer a conversão para escalas de cinza, será usado a técnica de 'conversão de espaços de cores' através de 'cv2.cvtColor'. Para o filtro de suavização, será aplicado uma convolução gaussiana (cv2.GaussianBlur). <br>
-Recebe: Imagem original colorida (BGR).<br>
-Produz: Matriz bidimensional em tons de cinza com suavização espacial. <br>
-Principal dúvida: Ainda não sabemos o tamanho ideal da máscara/kernel de convolução gaussiana para aplicar na imagem sem prejudicar muito a nitidez das bordas.<br>
+- **Finalidade:** Converter a imagem para uma escala de cinza para reduzir custo computacional e borrar a imagem para para suavizar os detalhes internos da moeda, o que vai ser útil para a segmentação.<br>
+- **Técnica:** Para fazer a conversão para escalas de cinza, será usado a técnica de 'conversão de espaços de cores' através de 'cv2.cvtColor'. Para o filtro de suavização, será aplicado uma convolução gaussiana (cv2.GaussianBlur). <br>
+- **Recebe:** Imagem original colorida (BGR).<br>
+- **Produz:** Matriz bidimensional em tons de cinza com suavização espacial. <br>
+- **Principal dúvida:** Ainda não sabemos o tamanho ideal da máscara/kernel de convolução gaussiana para aplicar na imagem sem prejudicar muito a nitidez das bordas.<br>
 
 2. **Segmentação por limiarização**<br>
-Finalidade: Separar matematicamente as moedas do fundo, binarizando a imagem. <br>
-Técnica: Através do 'cv2.threshold', será utilizado o método de limiarização global usando o método de Otsu (cv2.THRESH_OTSU).<br>
-Recebe: Matriz bidimensional em tons de cinza com suavização espacial. <br>
-Produz: Máscara binária que separa o fundo das moedas. <br>
-Principal dúvida/Observação: uma vez que o cv2.findCountours apenas detecta objetos claros num fundo escuro, será feito uma análise dos pixels da borda para deduzir qual a parte clara e qual a parte escura e, dependendo do caso, será usado o cv2.THRESH_BINARY_INV ou o cv2.THRESH_BINARY. Ainda estamos avaliando essa parte. <br>
+- **Finalidade:** Separar matematicamente as moedas do fundo, binarizando a imagem. <br>
+- **Técnica:** Através do 'cv2.threshold', será utilizado o método de limiarização global usando o método de Otsu (cv2.THRESH_OTSU).<br>
+- **Recebe:** Matriz bidimensional em tons de cinza com suavização espacial. <br>
+- **Produz:** Máscara binária que separa o fundo das moedas. <br>
+- **Principal dúvida/Observação:** uma vez que o cv2.findCountours apenas detecta objetos claros num fundo escuro, será feito uma análise dos pixels da borda para deduzir qual a parte clara e qual a parte escura e, dependendo do caso, será usado o cv2.THRESH_BINARY_INV ou o cv2.THRESH_BINARY. Ainda estamos avaliando essa parte. <br>
 
 3. **Busca de contornos e Extração da Área de interesse (ROI)**<br>
-Finalidade: Delimitar os limites espaciais de cada moeda na mascára binária e extrair o recorte de cada moeda. <br>
-Técnica: É usado o algoritmo de suzuki (cv2.findCountours) para varrer a máscara para buscar fronteiras externas e fechadas. É usado o cv2.contourArea para descartar contornos muito pequenos, como poeira e reflexos. Para cada moeda/contorno encontrada, o sistema delimita uma caixa ao redor dela (cv2.boundingRect).<br>
-Recebe: Máscara binária<br>
-Produz: Recortes individuais contendo cada moeda encontrada. <br>
-Principal dúvida: Não sabemos exatamente como vamos lidar com partes de outras moedas presentes na borda de um determinado recorte.<br>
+- **Finalidade:** Delimitar os limites espaciais de cada moeda na mascára binária e extrair o recorte de cada moeda. <br>
+- **Técnica:** É usado o algoritmo de suzuki (cv2.findCountours) para varrer a máscara para buscar fronteiras externas e fechadas. É usado o cv2.contourArea para descartar contornos muito pequenos, como poeira e reflexos. Para cada moeda/contorno encontrada, o sistema delimita uma caixa ao redor dela (cv2.boundingRect).<br>
+- **Recebe:** Máscara binária<br>
+- **Produz:** Recortes individuais contendo cada moeda encontrada. <br>
+- **Principal dúvida:** Não sabemos exatamente como vamos lidar com partes de outras moedas presentes na borda de um determinado recorte.<br>
 
 4. **Pré-processamento para o modelo de IA** <br>
-Finalidade: Padronizar cada recorte para que o modelo de IA possa trabalhar. <br>
-Técnica: Uma vez que as moedas são de tamanhos diferentes, cada caixa será redimensionada, através de interpolação espacial, para um tamanho fixo e padrão. Os valores das cores do pixels são normalizados para uma escala de 0.0 a 1.0, antes de serem convertidos pada tensores de entrada para que a rede neural possa trabalhar com a imagem. <br>
-Recebe: Recortes (ROIs) de dimensões variadas.<br>
-Produz: Tensor padronizado.<br>
-Principal dúvida: O quanto o redimensionamento dos recortes vai interferir na acurácia do modelo.<br>
+- **Finalidade:** Padronizar cada recorte para que o modelo de IA possa trabalhar. <br>
+- **Técnica:** Uma vez que as moedas são de tamanhos diferentes, cada caixa será redimensionada, através de interpolação espacial, para um tamanho fixo e padrão. Os valores das cores do pixels são normalizados para uma escala de 0.0 a 1.0, antes de serem convertidos pada tensores de entrada para que a rede neural possa trabalhar com a imagem. <br>
+- **Recebe:** Recortes (ROIs) de dimensões variadas.<br>
+- **Produz:** Tensor padronizado.<br>
+- **Principal dúvida:** O quanto o redimensionamento dos recortes vai interferir na acurácia do modelo.<br>
 
 5. **Classificação**<br>
-Finalidade: Inferir a classe correta de moeda a partir dos padrões visuais da face da coroa. <br>
-Técnica: Rede Neural Convolucional (TensorFlow/Keras).<br>
-Recebe: Tensor padronizado.<br>
-Produz: Array com a distribuição de probabilidades de classes, através da função softmax.<br>
-Principal dúvida: Precisamos decidir em detalhes como será feito o treinamento e outros parâmetros importantes do modelo, como o número de camadas. <br>
+- **Finalidade:** Inferir a classe correta de moeda a partir dos padrões visuais da face da coroa. <br>
+- **Técnica:** Rede Neural Convolucional (TensorFlow/Keras).<br>
+- **Recebe:** Tensor padronizado.<br>
+- **Produz:** Array com a distribuição de probabilidades de classes, através da função softmax.<br>
+- **Principal dúvida:** Precisamos decidir em detalhes como será feito o treinamento e outros parâmetros importantes do modelo, como o número de camadas. <br>
 
 6. **Resultado**<br>
-Finalidade: Identificar qual a moeda correta e incrementar o valor em uma variável que representa montante total. <br>
-Técnica: Uso de lógica interna no código python para decidir qual é a classe com maior probabilidade.<br>
-Recebe: Array com a distribuição de probabilidades de classes, através da função softmax.<br>
-Produz: Incremento na variável do montante total.<br>
+- **Finalidade:** Identificar qual a moeda correta e incrementar o valor em uma variável que representa montante total. <br>
+- **Técnica:** Uso de lógica interna no código python para decidir qual é a classe com maior probabilidade.<br>
+- **Recebe:** Array com a distribuição de probabilidades de classes, através da função softmax.<br>
+- **Produz:** Incremento na variável do montante total.<br>
+
 --- 
 
 ## 8. Arquitetura preliminar
