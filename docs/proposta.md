@@ -130,6 +130,6 @@ O uso de técnicas de limiarização e topologia é uma abordagem consolidada pa
 
 ## 10. Uso de Inteligência Artificial Generativa
 **Ferramenta utilizada: ** Gemini Pro 3.1.<b>
-**Finalidade:** Brainstorming de abordagens, técnicas e métodos para o projeto; Pesquisa e aprofundamento em informações necessárias; Refinamento textual. 
-**Material produzido ou modificado:** Texto descritivo de 'PipeLine preliminar'. Além de refinamentos textuais ao longo da documentação. 
-**forma como o grupo verificou a resposta obtida** Nenhuma decisão foi aceita cegamente. Qualquer sugestão dada pela IA passou pela validação de alguém do grupo. E qualquer sugestão foi passada por revisão. 
+**Finalidade:** Brainstorming de abordagens, técnicas e métodos para o projeto; Pesquisa e aprofundamento em informações necessárias; Refinamento textual. <b>
+**Material produzido ou modificado:** Texto descritivo de 'PipeLine preliminar'. Além de refinamentos textuais ao longo da documentação. <b>
+**forma como o grupo verificou a resposta obtida** Nenhuma decisão foi aceita cegamente. Qualquer sugestão dada pela IA passou pela validação de alguém do grupo. E qualquer sugestão foi passada por revisão. <b>
