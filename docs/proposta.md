@@ -42,7 +42,11 @@ do Real em imagens digitais, informando o somatório dos valores.
 - **Precisão na classificação:** O modelo de rede neural deve ser capaz de identificar corretamente o valor das moedas através de sua tipografia, independentemente de sua rotação. 
 
 ## 6. Imagens
-A
+Para esse projeto, serão utilizados um *dataset* de imagens para o treinamento do modelo de IA e um conjunto de 10 imagens para o teste do código.
+
+## 6.1. Imagens para treinamento
+
+## 6.2. Imagens para teste
 
 ---
 
