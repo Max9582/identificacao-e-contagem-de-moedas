@@ -33,7 +33,7 @@
 * **Origem:** [Brazilian Coins - Kaggle](https://www.kaggle.com/datasets/lgmoneda/br-coins/data)
 * **Licença:** *CC BY-NC-SA 4.0*.
 * **Quantidade:** 28.2 mil imagens no formato *.jpg*.
-* **Características:** Contém fotos de moedas do Real, divididas em imagens de moedas únicas e múltiplas moedas, com iluminações diferentes no ambiente, com fundo branco, com e sem o *COCO label*.
+* **Características:** Contém fotos de moedas do Real, divididas em imagens de moedas únicas e múltiplas moedas, com iluminações diferentes no ambiente, com fundo branco, com e sem o [COCO format](https://cocodataset.org/#home).
 
 ### 2. Imagens para Teste
 * **Origem:** Fotos autorais capturadas pelos integrantes do grupo, disponíveis na pasta `/images/input`.
