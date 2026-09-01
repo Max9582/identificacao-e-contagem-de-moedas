@@ -37,11 +37,10 @@
 
 ### 2. Imagens para Teste
 * **Origem:** Fotos autorais capturadas pelos integrantes do grupo, disponíveis na pasta `/images/input`.
-* **Quantidade:** 30 imagens.
+* **Quantidade:** 10 imagens.
 * **Variabilidade:** As fotos foram tiradas variando:
-  * **Iluminação:** Luz natural (dia) e luz artificial.
-  * **Fundo:** Superfícies lisas, de madeira e fundos texturizados.
-  * **Disposição:** Moedas isoladas e em conjunto.
+  * **Fundo:** Superfícies lisas e texturizadas.
+  * **Disposição:** Moedas em conjunto, isoladas, próximas e separadas.
 
 ---
 
