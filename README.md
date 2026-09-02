@@ -46,7 +46,7 @@
 
 ## Estágio Atual
 
-**Estágio Atual:** Pesquisando e definindo requisitos.
+**Estágio Atual:** M1 concluída. Definimos o problema, conjunto de imagens, pipeline e estudo de viabilidade. O próximo passo é começar o desenvolvimento do código de acordo com o que foi planejado na proposta.
 
 ---
 
