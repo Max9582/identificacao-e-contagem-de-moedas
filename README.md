@@ -71,7 +71,7 @@ identificacao-e-contagem-de-moedas/
 * **Bibliotecas Principais:** OpenCV e TensorFlow
 
 ## Vídeo de apresentação
-A ser definido.
+Link do vídeo: <https://youtu.be/GODjVWywVVA>
 
 ## Documentação adicional 
 - Proposta do Projeto, disponível na pasta `/docs`
