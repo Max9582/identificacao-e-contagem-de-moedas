@@ -32,13 +32,13 @@ do Real em imagens digitais, informando o somatório dos valores.
 ---
 
 ## 4. Entrada e Saída Esperadas
-- **Entrada:** Uma imagem digital contendo uma ou múltiplas moedas. Para o escopo do projeto, é assumido que todas as moedas presentes na imagem tenham a face "coroa" voltada para cima. além disso, o fundo deve ter uma neutralidade razoável que permita a segmentação e Identificação adequada. 
+- **Entrada:** Uma imagem digital contendo uma ou múltiplas moedas. Para o escopo do projeto, é assumido que todas as moedas presentes na imagem tenham a face "coroa" voltada para cima. Para este projeto, considera-se adequado o fundo das imagens de teste (liso ou texturizado) em que as moedas possam ser separadas segundo o critério de segmentação descrito abaixo.
 - **Saída:** Um texto informando o total do montante detectado.
 
 ---
 
 ## 5. Critérios de Sucesso
-- **Segmentação precisa:** O sistema precisa ser capaz de extrair corretamente a geometria das moedas, delimitando se certa região é uma moeda ou o fundo e, ao mesmo tempo, descartando ruídos e reflexos de fundo que possam interferir negativamente na segmentação. 
+- **Segmentação precisa:** A segmentação será considerada precisa quando a região extraída para cada moeda tiver interseção sobre união (IoU) de pelo menos 0,90 em relação à máscara de referência anotada a mão.
 - **Precisão na classificação:** O modelo de rede neural deve ser capaz de identificar corretamente o valor das moedas através de sua tipografia, independentemente de sua rotação. 
 
 ## 6. Imagens
@@ -78,7 +78,7 @@ flowchart TD
 - **Técnica:** Através do 'cv2.threshold', será utilizado o método de limiarização global usando o método de Otsu (cv2.THRESH_OTSU).<br>
 - **Recebe:** Matriz bidimensional em tons de cinza com suavização espacial. <br>
 - **Produz:** Máscara binária que separa o fundo das moedas. <br>
-- **Principal dúvida/Observação:** uma vez que o cv2.findCountours apenas detecta objetos claros num fundo escuro, será feito uma análise dos pixels da borda para deduzir qual a parte clara e qual a parte escura e, dependendo do caso, será usado o cv2.THRESH_BINARY_INV ou o cv2.THRESH_BINARY. Ainda estamos avaliando essa parte. <br>
+- **Observação:** `cv2.findContours` considera como objeto os pixels não nulos da máscara binária. Por isso, poderá ser usado `cv2.THRESH_BINARY_INV` ou `cv2.THRESH_BINARY`, conforme a polaridade necessária para representar as moedas como primeiro plano.<br>
 
 3. **Busca de contornos e Extração da Área de interesse (ROI)**<br>
 - **Finalidade:** Delimitar os limites espaciais de cada moeda na mascára binária e extrair o recorte de cada moeda. <br>
