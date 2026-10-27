@@ -61,6 +61,7 @@ identificacao-e-contagem-de-moedas/
 ├── images/
 │   ├── input/              # Imagens de input
 │   └── results/            # Imagens de output
+├── src/                    # Implementação do código em Python
 ├── LICENSE                 # GNU General Public License v3.0
 └── .gitignore
 ```
@@ -71,7 +72,19 @@ identificacao-e-contagem-de-moedas/
 * **Linguagem:** Python
 * **Bibliotecas Principais:** OpenCV e TensorFlow
 
-## 
+## Instruções dos experimentos realizados
+
+- **Testes de segmentação com o uso da morfologia, para geração de máscaras binárias**
+
+``` Bash
+python src/main.py --entrada <input-relative-path> --saida <output-relative-path> --abertura <int> --fechamento <int>
+```
+
+- **Testes de identificação das moedas**
+
+``` Bash
+python src/identifica.py --entrada <input-relative-path> --saida <output-relative-path>
+```
 
 ## Vídeos de apresentação
 * M1: <https://youtu.be/GODjVWywVVA>
@@ -79,3 +92,5 @@ identificacao-e-contagem-de-moedas/
 
 ## Documentação adicional 
 - Proposta do Projeto, disponível na pasta `/docs`
+- Documentação detalhada dos parâmetros utilizados nos experimentos, disponível em `/docs/teste_parametros.md`
+- Referências manuais das imagens de input em `/images/input/README.md`
