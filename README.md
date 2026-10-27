@@ -71,6 +71,8 @@ identificacao-e-contagem-de-moedas/
 * **Linguagem:** Python
 * **Bibliotecas Principais:** OpenCV e TensorFlow
 
+## 
+
 ## Vídeos de apresentação
 * M1: <https://youtu.be/GODjVWywVVA>
 * M2: Link aqui
