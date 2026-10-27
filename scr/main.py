@@ -11,7 +11,7 @@ args = parser.parse_args()
 
 imagem = cv2.imread(args.entrada)
 if imagem is None:
-    raise FileNotFoundError(f"Erro ao abrir imagem")
+    raise FileNotFoundError(f"Erro ao abrir imagem em: {args.entrada} !!!")
 
 cinza = cv2.cvtColor(imagem, cv2.COLOR_BGR2GRAY)
 cinza_blur = cv2.medianBlur(cinza, 7) 
@@ -39,6 +39,6 @@ buracos = cv2.bitwise_not(mascara_auxiliar)
 mascara = cv2.bitwise_or(mascara, buracos)
 
 if not cv2.imwrite(args.saida, mascara):
-    raise OSError(f"Erro ao salvar imagem")
+    raise OSError(f"Erro ao salvar imagem em: {args.saida} !!!")
 
 print(f"Imagem salva: {args.saida}")
