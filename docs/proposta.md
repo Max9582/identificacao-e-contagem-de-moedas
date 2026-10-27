@@ -68,14 +68,14 @@ flowchart TD
 
 1. **Conversão para escala de cinza e suavização**<br>
 - **Finalidade:** Converter a imagem para uma escala de cinza para reduzir custo computacional e borrar a imagem para para suavizar os detalhes internos da moeda, o que vai ser útil para a segmentação.<br>
-- **Técnica:** Para fazer a conversão para escalas de cinza, será usado a técnica de 'conversão de espaços de cores' através de 'cv2.cvtColor'. Para o filtro de suavização, será aplicado uma convolução gaussiana (cv2.GaussianBlur). <br>
+- **Técnica:** Para fazer a conversão para escalas de cinza, será usado a técnica de 'conversão de espaços de cores' através de 'cv2.cvtColor'. Para o filtro de suavização, será aplicado o filtro de mediana (cv2.medianBlur) através de um kernel 7x7. <br>
 - **Recebe:** Imagem original colorida (BGR).<br>
 - **Produz:** Matriz bidimensional em tons de cinza com suavização espacial. <br>
 - **Principal dúvida:** Ainda não sabemos o tamanho ideal da máscara/kernel de convolução gaussiana para aplicar na imagem sem prejudicar muito a nitidez das bordas.<br>
 
 2. **Segmentação por limiarização**<br>
 - **Finalidade:** Separar matematicamente as moedas do fundo, binarizando a imagem. <br>
-- **Técnica:** Através do 'cv2.threshold', será utilizado o método de limiarização global usando o método de Otsu (cv2.THRESH_OTSU).<br>
+- **Técnica:** Através do 'cv2.threshold', será utilizado o método de limiarização global usando o método de Otsu (cv2.THRESH_OTSU).<br> 
 - **Recebe:** Matriz bidimensional em tons de cinza com suavização espacial. <br>
 - **Produz:** Máscara binária que separa o fundo das moedas. <br>
 - **Observação:** `cv2.findContours` considera como objeto os pixels não nulos da máscara binária. Por isso, poderá ser usado `cv2.THRESH_BINARY_INV` ou `cv2.THRESH_BINARY`, conforme a polaridade necessária para representar as moedas como primeiro plano.<br>
