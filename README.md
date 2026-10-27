@@ -46,7 +46,7 @@
 
 ## Estágio Atual
 
-**Estágio Atual:** M1 concluída. Definimos o problema, conjunto de imagens, pipeline e estudo de viabilidade. O próximo passo é começar o desenvolvimento do código de acordo com o que foi planejado na proposta.
+**Estágio Atual:** M2 em andamento. Na M1, definimos o problema, conjunto de imagens, pipeline e estudo de viabilidade. O próximo passo é começar o desenvolvimento do código de acordo com o que foi planejado na proposta.
 
 ---
 
@@ -56,6 +56,7 @@
 identificacao-e-contagem-de-moedas/
 ├── README.md               # Este arquivo
 ├── docs/
+│   ├── relatorio_m2.md     # Relatório parcial M2
 │   └── proposta.md         # Documento detalhado da proposta M1
 ├── images/
 │   ├── input/              # Imagens de input
@@ -70,8 +71,9 @@ identificacao-e-contagem-de-moedas/
 * **Linguagem:** Python
 * **Bibliotecas Principais:** OpenCV e TensorFlow
 
-## Vídeo de apresentação
-Link do vídeo: <https://youtu.be/GODjVWywVVA>
+## Vídeos de apresentação
+* M1: <https://youtu.be/GODjVWywVVA>
+* M2: Link aqui
 
 ## Documentação adicional 
 - Proposta do Projeto, disponível na pasta `/docs`
