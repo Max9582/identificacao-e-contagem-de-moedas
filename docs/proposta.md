@@ -55,7 +55,7 @@ flowchart TD
     A[Imagem de entrada]
     --> B[Conversão para escala de cinza e suavização]
     --> C[Segmentação por limiarização]
-    --> D[Busca de contornos e extração da Área de Interesse - ROI]
+    --> D[Busca de contornos, extração da Área de Interesse - ROI e morfologia]
     --> E[Pré-processamento para o modelo de IA]
     --> F[Classificação]
     --> G[Resultado]
@@ -73,16 +73,16 @@ flowchart TD
 - **Produz:** Matriz bidimensional em tons de cinza com suavização espacial. <br>
 - **Principal dúvida:** Ainda não sabemos o tamanho ideal da máscara/kernel de convolução gaussiana para aplicar na imagem sem prejudicar muito a nitidez das bordas.<br>
 
-2. **Segmentação por limiarização**<br>
+2. **Segmentação por limiarização e morfologia**<br>
 - **Finalidade:** Separar matematicamente as moedas do fundo, binarizando a imagem. <br>
-- **Técnica:** Através do 'cv2.threshold', será utilizado o método de limiarização global usando o método de Otsu (cv2.THRESH_OTSU). O código também faz a inversão inteligente para casos em que as moedas ficaram identificadas com a cor preta e o fundo com a cor branca. Para isso, o código seleciona as linhas e colunas das bordas identifica se a média aritmética é maior ou menor que 127. Caso necessário, as cores são invertidas. <br> 
+- **Técnica:** Através do 'cv2.threshold', será utilizado o método de limiarização global usando o método de Otsu (cv2.THRESH_OTSU). O código também faz a inversão inteligente para casos em que as moedas ficaram identificadas com a cor preta e o fundo com a cor branca. Para isso, o código seleciona as linhas e colunas das bordas identifica se a média aritmética é maior ou menor que 127. Caso necessário, as cores são invertidas. Em seguida, é aplicado as operações morfológicas fechamento e abertura, nesta ordem, para fechar buracos e limpar detritos. <br> 
 - **Recebe:** Matriz bidimensional em tons de cinza com suavização espacial. <br>
 - **Produz:** Máscara binária que separa o fundo das moedas. <br>
 - **Observação:** `cv2.findContours` considera como objeto os pixels não nulos da máscara binária. Por isso, poderá ser usado `cv2.THRESH_BINARY_INV` ou `cv2.THRESH_BINARY`, conforme a polaridade necessária para representar as moedas como primeiro plano.<br>
 
 3. **Busca de contornos e Extração da Área de interesse (ROI)**<br>
 - **Finalidade:** Delimitar os limites espaciais de cada moeda na mascára binária e extrair o recorte de cada moeda. <br>
-- **Técnica:** É usado o algoritmo de suzuki (cv2.findCountours) para varrer a máscara para buscar fronteiras externas e fechadas. É usado o cv2.contourArea para descartar contornos muito pequenos, como poeira e reflexos. Para cada moeda/contorno encontrada, o sistema delimita uma caixa ao redor dela (cv2.boundingRect).<br>
+- **Técnica:** Para identificar a posição das moedas, é usado a transformada de hough (cv2.houghCircles) para identificar os contornos circulares. Para cada moeda/contorno encontrada, o sistema delimita uma caixa ao redor dela.<br>
 - **Recebe:** Máscara binária<br>
 - **Produz:** Recortes individuais contendo cada moeda encontrada. <br>
 - **Principal dúvida:** Não sabemos exatamente como vamos lidar com partes de outras moedas presentes na borda de um determinado recorte.<br>
