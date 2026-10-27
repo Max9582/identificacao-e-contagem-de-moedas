@@ -33,7 +33,7 @@ python src/identifica.py --entrada <input-relative-path> --saida <output-relativ
 | ![diversas_espalhadas_papel2.jpg](../images/input/diversas_espalhadas_papel2.jpg) | ... | ![diversas_espalhadas_papel2_identificacao.png](../images/results/diversas_espalhadas_papel2_identificacao.png) |
 | ![diversas_fundoTexturizado.jpg](../images/input/diversas_fundoTexturizado.jpg) | ... | ![diversas_fundoTexturizado_identificacao.png](../images/results/diversas_fundoTexturizado_identificacao.png) |
 | ![diversas_fundoTexturizadoFlash.jpg](../images/input/diversas_fundoTexturizadoFlash.jpg) | ... | ![diversas_fundoTexturizadoFlash_identificacao.png](../images/results/diversas_fundoTexturizadoFlash_identificacao.png) |
-| ![diversas_porCima_papeljpg.jpg](../images/input/diversas_porCima_papeljpg.jpg) | ... | ![diversas_porCima_papel_identificacao.png](../images/results/diversas_porCima_papel_identificacao.png) |
+| ![diversas_porCima_papeljpg.jpg](../images/input/diversas_porCima_papeljpg.jpg) | ... | ![diversas_porCima_papeljpg_identificacao.png](../images/results/diversas_porCima_papeljpg_identificacao.png) |
 | ![poucas_bemPerto_papel.jpg](../images/input/poucas_bemPerto_papel.jpg) | ... | ![poucas_bemPerto_papel_identificacao.png](../images/results/poucas_bemPerto_papel_identificacao.png) |
 | ![poucas_fundoTexturizado.jpg](../images/input/poucas_fundoTexturizado.jpg) | ... | ![poucas_fundoTexturizado_identificacao.png](../images/results/poucas_fundoTexturizado_identificacao.png) |
 | ![poucas_perto_fundoTexturizado](../images/input/poucas_perto_fundoTexturizado.jpg) | ... | ![poucas_perto_fundoTexturizado_identificacao.png](../images/results/poucas_perto_fundoTexturizado_identificacao.png) |
