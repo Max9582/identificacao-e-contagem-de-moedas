@@ -75,7 +75,7 @@ flowchart TD
 
 2. **Segmentação por limiarização**<br>
 - **Finalidade:** Separar matematicamente as moedas do fundo, binarizando a imagem. <br>
-- **Técnica:** Através do 'cv2.threshold', será utilizado o método de limiarização global usando o método de Otsu (cv2.THRESH_OTSU).<br> 
+- **Técnica:** Através do 'cv2.threshold', será utilizado o método de limiarização global usando o método de Otsu (cv2.THRESH_OTSU). O código também faz a inversão inteligente para casos em que as moedas ficaram identificadas com a cor preta e o fundo com a cor branca. Para isso, o código seleciona as linhas e colunas das bordas identifica se a média aritmética é maior ou menor que 127. Caso necessário, as cores são invertidas. <br> 
 - **Recebe:** Matriz bidimensional em tons de cinza com suavização espacial. <br>
 - **Produz:** Máscara binária que separa o fundo das moedas. <br>
 - **Observação:** `cv2.findContours` considera como objeto os pixels não nulos da máscara binária. Por isso, poderá ser usado `cv2.THRESH_BINARY_INV` ou `cv2.THRESH_BINARY`, conforme a polaridade necessária para representar as moedas como primeiro plano.<br>
