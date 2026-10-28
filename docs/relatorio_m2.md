@@ -62,6 +62,8 @@ Assim chegamos aos valores da tabela:
 
 O fechamento 4 melhorou três fotos, mas piorou a foto texturizada; a média macro praticamente não mudou e ficou abaixo de 0,90. O caso de melhora foi `diversas_espalhadas_papel2`; o caso de falha foi `diversas_fundoTexturizado`. Este IoU é calculado sobre a máscara inteira, não por moeda.
 
+Na proposta, definimos como meta de sucesso IoU de pelo menos 0,90. Essa meta ainda não foi atingida, as médias ficaram em 0,8172 e 0,8164, e somente uma das quatro imagens ultrapassou 0,90 com fechamento 4. Na M3, vamos revisar e aprimorar a segmentação, testar os ajustes e medir novamente o IoU, buscando atingir a meta.
+
 **Máscara de referência e resultado com fechamento 4:**
 
 | Caso de melhora | Caso de falha |
@@ -96,10 +98,17 @@ O erro absoluto médio é **8,1 moedas por imagem**, por conta de o detector con
 
 ## Limitações e próximos passos da M3
 
-- Criar referências de segmentação para as outras seis fotos.
+- Criar máscaras de referência para as outras seis fotos, completando as dez imagens.
+- Revisar e aprimorar o método de segmentação para buscar atingir a meta de IoU de pelo menos 0,90.
 - Reduzir círculos duplicados e falsos positivos e repetir a avaliação da contagem.
-- Desenvolver o algoritimo de classificação e soma valor total.
+- Desenvolver o algoritmo de classificação e soma do valor total.
 
 ## Contribuições, referências e IA
 
-A
+Com base nos commits da M2:
+
+- **Gabriel:** ajustou a proposta em resposta ao feedback, executou a segmentação inicial nas fotos, a baseline de contagem e os experimentos, e elaborou o relatório da M2.
+- **Diego:** implementou o código de segmentação e morfologia e a identificação inicial por círculos, adicionou as dependências e produziu as quatro máscaras de referência.
+- **Seiki:** realizou testes de morfologia com diferentes parâmetros e documentou os resultados.
+
+As referências utilizadas e a declaração de uso de IA estão documentadas em [proposta.md](proposta.md).

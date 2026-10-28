@@ -46,7 +46,7 @@
 
 ## Estágio Atual
 
-**Estágio Atual:** M2 em andamento. Na M1, definimos o problema, conjunto de imagens, pipeline e estudo de viabilidade. O próximo passo é começar o desenvolvimento do código de acordo com o que foi planejado na proposta.
+**Estágio Atual:** M2: há um protótipo de segmentação por limiarização e morfologia, além de uma baseline de detecção de círculos. A avaliação da segmentação ainda é preliminar: as máscaras de referência cobrem quatro das dez imagens e o IoU médio ainda não atingiu a meta definida. Na M3, vamos completar as máscaras e aprimorar e reavaliar o método. A classificação das moedas e o cálculo automático do valor total também serám realizados na M3.
 
 ---
 
@@ -56,28 +56,49 @@
 identificacao-e-contagem-de-moedas/
 ├── README.md               # Este arquivo
 ├── docs/
-│   ├── relatorio_m2.md     # Relatório parcial M2
+│   ├── relatorio_m2.md     # Relatório da M2
 │   └── proposta.md         # Documento detalhado da proposta M1
 ├── images/
 │   ├── input/              # Imagens de input
-│   └── results/            # Imagens de output
+│   ├── results/            # Imagens de output
+│   └── segmentacaoManual/  # Máscaras de referência
 ├── src/                    # Implementação do código em Python
+├── requirements.txt        # Dependências do protótipo
 ├── LICENSE                 # GNU General Public License v3.0
 └── .gitignore
 ```
 
----
-
-## Tecnologias previstas
+## Tecnologias
 * **Linguagem:** Python
-* **Bibliotecas Principais:** OpenCV e TensorFlow
+* **Protótipo atual:** OpenCV para segmentação e detecção de círculos.
+* **Planejado:** TensorFlow para classificação das moedas na M3.
+
+## Instalação e execução
+
+Na raiz do repositório, instale as dependências:
+
+```bash
+python -m pip install -r requirements.txt
+```
+
+Exemplo de segmentação; a máscara será salva em `images/results/exemplo.png`:
+
+```bash
+python src/main.py --entrada images/input/diversas_fundoTexturizado.jpg --saida images/results/exemplo.png --abertura 2 --fechamento 2
+```
+
+Exemplo de detecção de círculos; a imagem marcada será salva no caminho indicado:
+
+```bash
+python src/identifica.py --entrada images/input/diversas_fundoTexturizado.jpg --saida images/results/diversas_fundoTexturizado_identificacao.png
+```
 
 ## Instruções dos experimentos realizados
 
 - **Testes de segmentação com o uso da morfologia, para geração de máscaras binárias**
 
 ``` Bash
-python src/main.py --entrada <input-relative-path> --saida <output-relative-path> --abertura <int> --fechamento <int>
+python src/main.py --entrada images/input/<imagem>.jpg --saida images/results/<saida>.png --abertura <int> --fechamento <int>
 ```
 
 - **Testes de identificação das moedas**
@@ -92,5 +113,6 @@ python src/identifica.py --entrada <input-relative-path> --saida <output-relativ
 
 ## Documentação adicional 
 - Proposta do Projeto, disponível na pasta `/docs`
+- Relatório da M2, disponível em `/docs/relatorio_m2.md`
 - Documentação detalhada dos parâmetros utilizados nos experimentos, disponível em `/docs/teste_parametros.md`
 - Referências manuais das imagens de input em `/images/input/README.md`
