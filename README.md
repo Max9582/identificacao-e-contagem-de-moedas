@@ -109,7 +109,7 @@ python src/identifica.py --entrada <input-relative-path> --saida <output-relativ
 
 ## Vídeos de apresentação
 * M1: <https://youtu.be/GODjVWywVVA>
-* M2: Link aqui
+* M2: <https://youtu.be/zBfGYe14Wcs>
 
 ## Documentação adicional 
 - Proposta do Projeto, disponível na pasta `/docs`
